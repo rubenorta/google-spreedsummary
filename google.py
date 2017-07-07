@@ -15,8 +15,6 @@ try:
 except ImportError:
     flags = None
 
-# If modifying these scopes, delete your previously saved credentials
-# at ~/.credentials/sheets.googleapis.com-python-quickstart.json
 SUMMARY_PERIOD = datetime.strptime('01/06/2017','%d/%m/%Y')
 
 SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
@@ -37,14 +35,7 @@ TR_FILES = { 'Alex' : '1kpZrtZjTL0fHKbfhlRI1xvPyGoyNQ2lYhnJvwQ269ic',
 ROW_LEN = 5
 
 def get_credentials():
-    """Gets valid user credentials from storage.
 
-    If nothing has been stored, or if the stored credentials are invalid,
-    the OAuth2 flow is completed to obtain the new credentials.
-
-    Returns:
-        Credentials, the obtained credential.
-    """
     home_dir = os.path.expanduser('~')
     credential_dir = os.path.join(home_dir, '.credentials-good')
     if not os.path.exists(credential_dir):
@@ -101,8 +92,6 @@ def process_sheet(service, spreadsheetId):
         title = sheet_props.get('title')
         rowCount = sheet_props.get('gridProperties').get('rowCount')
 
-        # print("Processing " + title)
-
         rangeName = title + "!D6:D7" + str(rowCount)
         result = service.spreadsheets().values().get(spreadsheetId=spreadsheetId, range=rangeName).execute()
 
@@ -126,18 +115,7 @@ def process_sheet(service, spreadsheetId):
                     for row in values:
                         if row:
                             if is_current_row(row):
-                                data = summary(data,row)
-                            #    print('+', end='')
-                            #else:
-                            #    print('.', end='')
-            #else:
-            #    print('Skip')
-        
-        #else:
-        #    print('No data sheet')
-        
-        #print('')
-        
+                                data = summary(data,row)        
     print("Resultados:")
     pprint(data)
 
