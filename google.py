@@ -34,7 +34,6 @@ TR_FILES = { 'Alex' : '1kpZrtZjTL0fHKbfhlRI1xvPyGoyNQ2lYhnJvwQ269ic',
     'Rocio': '1G-rop97G1Kr4oo2tQu6ub5H-xmHXNbM9DH397MuFWIs',
     'Sergio':'1m3SnXO149P6y_VEuZCWLCFVbrQbw_2pHxwSHkHy-r6w'}
 
-TR_FILES  = { 'Carlos': '1rsevQKmiSXR9_YHTKc7FaW1lClmjHW9fDPJn_TKX584' }
 ROW_LEN = 5
 
 def get_credentials():
